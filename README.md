@@ -20,7 +20,7 @@ With this architecture all layers was tested independently and easily, an elegan
 
 - Java 11
 
-# Installation
+# Running
 
 ```bash
 # clone repository
@@ -29,8 +29,8 @@ git clone https://github.com/kauanmocelin/hexagonal-architecture.git
 # enter the project folder
 cd hexagonal-architecture
 
-# execute the project
-./mvnw spring-boot:run
+# run tests
+./mvnw test
 ```
 
 # Author
