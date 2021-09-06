@@ -7,6 +7,10 @@
 This is an implementation of Hexagonal Architecture as objective to learn more about software architecture by hands on.
 With this architecture all layers was tested independently and easily, an elegance way to accomplish decoupling of code.
 
+# Architectural Diagram
+
+![Hexagonal Architecture Diagram](hexagonal-architecture.png)
+
 # Built With
 
 - Java
