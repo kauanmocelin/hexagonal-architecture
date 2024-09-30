@@ -11,7 +11,7 @@ class AccountTest {
     @DisplayName("Should withdraw money from account when successful")
     void shouldWithdrawMoneyFromAccountWhenSuccessful() {
         Account account = Account.builder()
-                .id(1L)
+                .id(new AccountId(1L))
                 .balance(100.00)
                 .build();
 
@@ -25,7 +25,7 @@ class AccountTest {
     @DisplayName("Should not withdraw money from account when failure")
     void shouldNotWithdrawMoneyFromAccountWhenFailure() {
         Account account = Account.builder()
-                .id(1L)
+                .id(new AccountId(1L))
                 .balance(100.00)
                 .build();
 
@@ -39,7 +39,7 @@ class AccountTest {
     @DisplayName("Should deposit money to account when successful")
     void shouldDepositMoneyToAccountWhenSuccessful() {
         Account account = Account.builder()
-                .id(1L)
+                .id(new AccountId(1L))
                 .balance(100.00)
                 .build();
 

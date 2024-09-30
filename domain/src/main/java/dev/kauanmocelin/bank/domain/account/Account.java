@@ -8,15 +8,14 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Builder
+@Getter
 public class Account {
 
-    private final Long id;
-
-    @Getter
+    private final AccountId id;
     private Double balance;
 
     public Optional<Long> getId() {
-        return Optional.ofNullable(this.id);
+        return Optional.of(this.id.value());
     }
 
     public boolean withdraw(Double money) {
