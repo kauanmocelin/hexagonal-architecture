@@ -20,6 +20,7 @@
         <module>domain</module>
         <module>application</module>
         <module>adapter</module>
+        <module>infrastructure</module>
     </modules>
 
     <properties>
