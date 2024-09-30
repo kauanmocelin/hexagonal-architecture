@@ -14,10 +14,18 @@
     <groupId>dev.kauanmocelin</groupId>
     <artifactId>hexagonal-architecture</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>domain</module>
+        <module>application</module>
+        <module>adapter</module>
+    </modules>
 
     <properties>
-        <java.version>11</java.version>
+        <maven.compiler.release>17</maven.compiler.release>
         <lombok-version>1.18.20</lombok-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>

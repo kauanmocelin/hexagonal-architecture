@@ -1,7 +1,0 @@
-package dev.kauanmocelin.bank.account.application.port.out;
-
-import dev.kauanmocelin.bank.account.domain.Account;
-
-public interface UpdateAccountPort {
-    void updateAccount(Account account);
-}
