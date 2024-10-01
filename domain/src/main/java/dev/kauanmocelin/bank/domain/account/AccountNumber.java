@@ -1,10 +1,8 @@
 package dev.kauanmocelin.bank.domain.account;
 
-import java.util.Objects;
+public record AccountNumber(long value) {
 
-public record AccountId(long value) {
-
-    public AccountId {
+    public AccountNumber {
         if(value < 1) {
             throw new IllegalArgumentException("'value' must be a positive long");
         }

@@ -29,8 +29,8 @@ class SendMoneyServiceTest {
         Account targetAccount = mockTargetAccountWithBalance(200.00);
 
         boolean sendMoneyResult = sendMoneyService.sendMoney(
-                sourceAccount.getId().get(),
-                targetAccount.getId().get(),
+                sourceAccount.getAccountNumber().get(),
+                targetAccount.getAccountNumber().get(),
                 100.00);
 
         assertThat(sendMoneyResult).isTrue();

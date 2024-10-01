@@ -2,7 +2,6 @@ package dev.kauanmocelin.bank.domain.account;
 
 import dev.kauanmocelin.bank.domain.transaction.Transaction;
 import dev.kauanmocelin.bank.domain.transaction.TransactionType;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -13,12 +12,12 @@ import java.util.Optional;
 @Getter
 public class Account {
 
-    private AccountId id;
+    private AccountNumber accountNumber;
     private Double balance;
     private final List<Transaction> transactions;
 
-    private Account(AccountId id, Double balance, List<Transaction> transactions) {
-        this.id = id;
+    private Account(AccountNumber accountNumber, Double balance, List<Transaction> transactions) {
+        this.accountNumber = accountNumber;
         this.balance = balance;
         this.transactions = transactions;
     }
@@ -27,12 +26,12 @@ public class Account {
         return new Account(null, 0.0, List.of());
     }
 
-    public static Account loadExist(AccountId id, Double balance, List<Transaction> transactions) {
+    public static Account loadExist(AccountNumber id, Double balance, List<Transaction> transactions) {
         return new Account(id, balance, transactions);
     }
 
-    public Optional<Long> getId() {
-        return Optional.of(this.id.value());
+    public Optional<Long> getAccountNumber() {
+        return Optional.of(this.accountNumber.value());
     }
 
     public boolean withdraw(Double money) {

@@ -2,7 +2,6 @@ package dev.kauanmocelin.bank.application.service.account;
 
 import dev.kauanmocelin.bank.application.port.in.account.SendMoneyUseCase;
 import dev.kauanmocelin.bank.application.port.out.persistence.AccountRepository;
-import dev.kauanmocelin.bank.application.port.out.persistence.CustomerRepository;
 import dev.kauanmocelin.bank.domain.account.Account;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -22,9 +21,9 @@ public class SendMoneyService implements SendMoneyUseCase {
         Account sourceAccount = accountRepository.loadAccount(sourceAccountId);
         Account targetAccount = accountRepository.loadAccount(targetAccountId);
 
-        sourceAccount.getId()
+        sourceAccount.getAccountNumber()
                 .orElseThrow(() -> new IllegalStateException("expected source account ID not to be empty"));
-        targetAccount.getId()
+        targetAccount.getAccountNumber()
                 .orElseThrow(() -> new IllegalStateException("expected target account ID not to be empty"));
 
         if (!sourceAccount.withdraw(money)) return false;
