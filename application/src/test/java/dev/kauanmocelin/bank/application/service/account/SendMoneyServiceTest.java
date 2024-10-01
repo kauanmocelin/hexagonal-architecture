@@ -1,7 +1,6 @@
 package dev.kauanmocelin.bank.application.service.account;
 
-import dev.kauanmocelin.bank.application.port.out.persistence.LoadAccountPort;
-import dev.kauanmocelin.bank.application.port.out.persistence.UpdateAccountPort;
+import dev.kauanmocelin.bank.application.port.out.persistence.AccountRepository;
 import dev.kauanmocelin.bank.application.service.account.common.AccountCreator;
 import dev.kauanmocelin.bank.domain.account.Account;
 import org.junit.jupiter.api.Test;
@@ -20,9 +19,7 @@ import static org.mockito.Mockito.verify;
 class SendMoneyServiceTest {
 
     @Mock
-    private LoadAccountPort loadAccountPort;
-    @Mock
-    private UpdateAccountPort updateAccountPort;
+    private AccountRepository accountRepository;
     @InjectMocks
     private SendMoneyService sendMoneyService;
 
@@ -39,19 +36,19 @@ class SendMoneyServiceTest {
         assertThat(sendMoneyResult).isTrue();
         assertThat(sourceAccount.getBalance()).isEqualTo(0.00);
         assertThat(targetAccount.getBalance()).isEqualTo(300.00);
-        verify(updateAccountPort, times(2)).updateAccount(ArgumentMatchers.any(Account.class));
+        verify(accountRepository, times(2)).updateAccount(ArgumentMatchers.any(Account.class));
     }
 
     private Account mockSourceAccountWithBalance(double balance) {
         Account sourceAccount = AccountCreator.createSourceAccountWithBalance(balance);
-        BDDMockito.when(loadAccountPort.loadAccount(1L))
+        BDDMockito.when(accountRepository.loadAccount(1L))
                 .thenReturn(sourceAccount);
         return sourceAccount;
     }
 
     private Account mockTargetAccountWithBalance(double balance) {
         Account targetAccount = AccountCreator.createTargetAccountWithBalance(balance);
-        BDDMockito.when(loadAccountPort.loadAccount(42L))
+        BDDMockito.when(accountRepository.loadAccount(42L))
                 .thenReturn(targetAccount);
         return targetAccount;
     }
