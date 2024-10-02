@@ -19,19 +19,19 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
-class SendMoneyServiceTest {
+class SendMoneyTest {
 
     @Mock
     private AccountRepository accountRepository;
     @InjectMocks
-    private SendMoneyService sendMoneyService;
+    private SendMoney sendMoney;
 
     @Test
     void shouldTransferMoneyBetweenAccountsWhenSuccessful() {
         Account sourceAccount = mockSourceAccountWithBalance(100.00);
         Account targetAccount = mockTargetAccountWithBalance(200.00);
 
-        boolean sendMoneyResult = sendMoneyService.sendMoney(
+        boolean sendMoneyResult = sendMoney.sendMoney(
                 sourceAccount.getAccountNumber().get(),
                 targetAccount.getAccountNumber().get(),
                 100.00);

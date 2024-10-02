@@ -18,14 +18,14 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class CreateCustomerAccountServiceTest {
+class CreateCustomerAccountTest {
 
     @Mock
     private AccountRepository accountRepository;
     @Mock
     private CustomerRepository customerRepository;
     @InjectMocks
-    private CreateCustomerAccountService createCustomerAccountService;
+    private CreateCustomerAccount createCustomerAccount;
 
     @Test
     void shouldThrowsAnExceptionWhenCreateCustomerAccountWithEmailAlreadyExists() {
@@ -36,7 +36,7 @@ class CreateCustomerAccountServiceTest {
         when(customerRepository.loadCustomer(new Email("johndoe@gmail.com"))).thenReturn(existingCustomer);
 
         assertThatExceptionOfType(CustomerAlreadyExistsException.class)
-                .isThrownBy(() -> createCustomerAccountService.createCustomerAccount(new Customer(new Email("johndoe@gmail.com"), "Jean Paul", Account.toSaveNew())))
+                .isThrownBy(() -> createCustomerAccount.createCustomerAccount(new Customer(new Email("johndoe@gmail.com"), "Jean Paul", Account.toSaveNew())))
                 .withMessage("Customer already exists with email: johndoe@gmail.com");
         verify(customerRepository, never()).createCustomer(any());
     }

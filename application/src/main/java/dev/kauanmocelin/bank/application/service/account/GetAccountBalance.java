@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class GetAccountBalanceService implements GetAccountBalanceQuery {
+public class GetAccountBalance implements GetAccountBalanceQuery {
 
     private final AccountRepository accountRepository;
 

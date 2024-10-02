@@ -14,7 +14,7 @@ import javax.transaction.Transactional;
 @Transactional
 @Component
 @AllArgsConstructor
-public class CreateCustomerAccountService implements CreateCustomerAccountUseCase {
+public class CreateCustomerAccount implements CreateCustomerAccountUseCase {
 
     private final AccountRepository accountRepository;
     private final CustomerRepository customerRepository;

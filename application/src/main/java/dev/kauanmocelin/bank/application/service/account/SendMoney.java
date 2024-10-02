@@ -13,7 +13,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Transactional
 @Component
-public class SendMoneyService implements SendMoneyUseCase {
+public class SendMoney implements SendMoneyUseCase {
 
     private final AccountRepository accountRepository;
 
