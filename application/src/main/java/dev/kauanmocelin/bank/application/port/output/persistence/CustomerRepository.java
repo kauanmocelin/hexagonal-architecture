@@ -1,7 +1,7 @@
-package dev.kauanmocelin.bank.application.port.out.persistence;
+package dev.kauanmocelin.bank.application.port.output.persistence;
 
 import dev.kauanmocelin.bank.domain.customer.Customer;
-import dev.kauanmocelin.bank.domain.customer.Email;
+import dev.kauanmocelin.bank.domain.customer.vo.Email;
 
 import java.util.Optional;
 

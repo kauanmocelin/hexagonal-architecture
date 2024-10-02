@@ -1,7 +1,7 @@
 package dev.kauanmocelin.bank.application.service.account.common;
 
 import dev.kauanmocelin.bank.domain.account.Account;
-import dev.kauanmocelin.bank.domain.account.AccountNumber;
+import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;
 
 public class AccountCreator {
 

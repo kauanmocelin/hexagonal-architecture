@@ -1,4 +1,4 @@
-package dev.kauanmocelin.bank.domain.customer;
+package dev.kauanmocelin.bank.domain.customer.vo;
 
 import java.util.Objects;
 import java.util.regex.Matcher;

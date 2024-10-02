@@ -1,5 +1,6 @@
 package dev.kauanmocelin.bank.domain.account;
 
+import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;
 import dev.kauanmocelin.bank.domain.transaction.Transaction;
 import dev.kauanmocelin.bank.domain.transaction.TransactionType;
 import lombok.Builder;
@@ -16,7 +17,7 @@ public class Account {
     private Double balance;
     private final List<Transaction> transactions;
 
-    private Account(AccountNumber accountNumber, Double balance, List<Transaction> transactions) {
+    public Account(AccountNumber accountNumber, Double balance, List<Transaction> transactions) {
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.transactions = transactions;

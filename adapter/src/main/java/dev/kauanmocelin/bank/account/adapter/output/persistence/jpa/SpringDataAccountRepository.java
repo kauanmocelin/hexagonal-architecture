@@ -1,4 +1,4 @@
-package dev.kauanmocelin.bank.account.adapter.out.persistence.jpa;
+package dev.kauanmocelin.bank.account.adapter.output.persistence.jpa;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

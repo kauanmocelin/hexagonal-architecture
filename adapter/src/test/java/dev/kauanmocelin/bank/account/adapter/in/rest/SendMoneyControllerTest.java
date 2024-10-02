@@ -1,8 +1,8 @@
 package dev.kauanmocelin.bank.account.adapter.in.rest;
 
-import dev.kauanmocelin.bank.account.adapter.in.rest.account.SendMoneyController;
-import dev.kauanmocelin.bank.application.port.in.account.GetAccountBalanceQuery;
-import dev.kauanmocelin.bank.application.port.in.account.SendMoneyUseCase;
+import dev.kauanmocelin.bank.account.adapter.input.rest.account.SendMoneyController;
+import dev.kauanmocelin.bank.application.port.input.account.GetAccountBalanceQuery;
+import dev.kauanmocelin.bank.application.port.input.account.SendMoneyUseCase;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;

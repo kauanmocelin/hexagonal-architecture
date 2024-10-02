@@ -1,8 +1,9 @@
 package dev.kauanmocelin.bank.application.service.account;
 
-import dev.kauanmocelin.bank.application.port.out.persistence.AccountRepository;
+import dev.kauanmocelin.bank.application.port.output.persistence.AccountRepository;
 import dev.kauanmocelin.bank.application.service.account.common.AccountCreator;
 import dev.kauanmocelin.bank.domain.account.Account;
+import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentMatchers;
@@ -10,6 +11,8 @@ import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.times;
@@ -41,15 +44,15 @@ class SendMoneyServiceTest {
 
     private Account mockSourceAccountWithBalance(double balance) {
         Account sourceAccount = AccountCreator.createSourceAccountWithBalance(balance);
-        BDDMockito.when(accountRepository.loadAccount(1L))
-                .thenReturn(sourceAccount);
+        BDDMockito.when(accountRepository.findByAccountNumber(new AccountNumber(1L)))
+                .thenReturn(Optional.of(sourceAccount));
         return sourceAccount;
     }
 
     private Account mockTargetAccountWithBalance(double balance) {
         Account targetAccount = AccountCreator.createTargetAccountWithBalance(balance);
-        BDDMockito.when(accountRepository.loadAccount(42L))
-                .thenReturn(targetAccount);
+        BDDMockito.when(accountRepository.findByAccountNumber(new AccountNumber(42L)))
+                .thenReturn(Optional.of(targetAccount));
         return targetAccount;
     }
 }

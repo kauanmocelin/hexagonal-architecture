@@ -1,7 +1,7 @@
-package dev.kauanmocelin.bank.account.adapter.in.rest.account;
+package dev.kauanmocelin.bank.account.adapter.input.rest.account;
 
-import dev.kauanmocelin.bank.application.port.in.account.GetAccountBalanceQuery;
-import dev.kauanmocelin.bank.application.port.in.account.SendMoneyUseCase;
+import dev.kauanmocelin.bank.application.port.input.account.GetAccountBalanceQuery;
+import dev.kauanmocelin.bank.application.port.input.account.SendMoneyUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

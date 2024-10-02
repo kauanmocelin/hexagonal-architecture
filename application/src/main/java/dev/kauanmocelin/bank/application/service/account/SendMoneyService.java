@@ -1,12 +1,14 @@
 package dev.kauanmocelin.bank.application.service.account;
 
-import dev.kauanmocelin.bank.application.port.in.account.SendMoneyUseCase;
-import dev.kauanmocelin.bank.application.port.out.persistence.AccountRepository;
+import dev.kauanmocelin.bank.application.port.input.account.SendMoneyUseCase;
+import dev.kauanmocelin.bank.application.port.output.persistence.AccountRepository;
 import dev.kauanmocelin.bank.domain.account.Account;
+import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Transactional
@@ -18,19 +20,20 @@ public class SendMoneyService implements SendMoneyUseCase {
     @Override
     public boolean sendMoney(Long sourceAccountId, Long targetAccountId, Double money) {
 
-        Account sourceAccount = accountRepository.loadAccount(sourceAccountId);
-        Account targetAccount = accountRepository.loadAccount(targetAccountId);
+        Optional<Account> sourceAccount = accountRepository.findByAccountNumber(new AccountNumber(sourceAccountId));
+        Optional<Account> targetAccount = accountRepository.findByAccountNumber(new AccountNumber(targetAccountId));
 
-        sourceAccount.getAccountNumber()
+        //TODO: verificar e corrigir os Optional
+        sourceAccount.get().getAccountNumber()
                 .orElseThrow(() -> new IllegalStateException("expected source account ID not to be empty"));
-        targetAccount.getAccountNumber()
+        targetAccount.get().getAccountNumber()
                 .orElseThrow(() -> new IllegalStateException("expected target account ID not to be empty"));
 
-        if (!sourceAccount.withdraw(money)) return false;
-        if (!targetAccount.deposit(money)) return false;
+        if (!sourceAccount.get().withdraw(money)) return false;
+        if (!targetAccount.get().deposit(money)) return false;
 
-        accountRepository.updateAccount(sourceAccount);
-        accountRepository.updateAccount(targetAccount);
+        accountRepository.updateAccount(sourceAccount.get());
+        accountRepository.updateAccount(targetAccount.get());
         return true;
     }
 }

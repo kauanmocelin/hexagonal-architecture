@@ -1,6 +1,6 @@
-package dev.kauanmocelin.bank.domain.account;
+package dev.kauanmocelin.bank.domain.account.vo;
 
-public record AccountNumber(long value) {
+public record AccountNumber(Long value) {
 
     public AccountNumber {
         if(value < 1) {

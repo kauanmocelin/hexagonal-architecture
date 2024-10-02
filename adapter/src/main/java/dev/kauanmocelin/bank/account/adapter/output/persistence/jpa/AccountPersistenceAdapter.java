@@ -1,12 +1,14 @@
-package dev.kauanmocelin.bank.account.adapter.out.persistence.jpa;
+package dev.kauanmocelin.bank.account.adapter.output.persistence.jpa;
 
-import dev.kauanmocelin.bank.application.port.out.persistence.AccountRepository;
+import dev.kauanmocelin.bank.application.port.output.persistence.AccountRepository;
 import dev.kauanmocelin.bank.domain.account.Account;
+import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.cfg.NotYetImplementedException;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
@@ -16,16 +18,15 @@ public class AccountPersistenceAdapter implements AccountRepository {
     private final AccountMapper accountMapper;
 
     @Override
-    public Account createAccount(Account account) {
+    public Account save(Account account) {
         throw new NotYetImplementedException();
     }
 
     @Override
-    public Account loadAccount(Long accountId) {
-        AccountJpaEntity account = accountRepository.findById(accountId)
+    public Optional<Account> findByAccountNumber(AccountNumber accountNumber) {
+        AccountJpaEntity account = accountRepository.findById(accountNumber.value())
                 .orElseThrow(EntityNotFoundException::new);
-
-        return accountMapper.mapToDomainEntity(account);
+        return Optional.of(accountMapper.mapToDomainEntity(account));
     }
 
     @Override
