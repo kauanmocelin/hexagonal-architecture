@@ -5,14 +5,14 @@ import dev.kauanmocelin.bank.application.port.output.persistence.AccountReposito
 import dev.kauanmocelin.bank.domain.account.Account;
 import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Optional;
 
 @RequiredArgsConstructor
 @Transactional
-@Component
+@Service
 public class SendMoney implements SendMoneyUseCase {
 
     private final AccountRepository accountRepository;

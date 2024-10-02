@@ -2,6 +2,7 @@ package dev.kauanmocelin.bank.account.adapter.input.rest.account;
 
 import dev.kauanmocelin.bank.application.port.input.account.GetAccountBalanceQuery;
 import dev.kauanmocelin.bank.application.port.input.account.SendMoneyUseCase;
+import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +15,8 @@ public class SendMoneyController {
     private final SendMoneyUseCase sendMoneyUseCase;
 
     @GetMapping(path = "/{accountId}")
-    public Double getAccountBalance(@PathVariable Long accountId) {
-        return getAccountBalanceQuery.getAccountBalance(accountId);
+    public Double getAccountBalance(@PathVariable Long accountNumber) {
+        return getAccountBalanceQuery.getAccountBalance(new AccountNumber(accountNumber));
     }
 
     @PostMapping(path = "/send/{sourceAccountId}/{targetAccountId}/{amount}")

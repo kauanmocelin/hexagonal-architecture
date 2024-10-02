@@ -1,18 +1,18 @@
 package dev.kauanmocelin.bank.application.service.account;
 
 import dev.kauanmocelin.bank.application.port.input.account.CreateCustomerAccountUseCase;
-import dev.kauanmocelin.bank.application.port.input.account.exception.CustomerAlreadyExistsException;
+import dev.kauanmocelin.bank.application.service.account.exception.CustomerAlreadyExistsException;
 import dev.kauanmocelin.bank.application.port.output.persistence.AccountRepository;
 import dev.kauanmocelin.bank.application.port.output.persistence.CustomerRepository;
 import dev.kauanmocelin.bank.domain.account.Account;
 import dev.kauanmocelin.bank.domain.customer.Customer;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
 @Transactional
-@Component
+@Service
 @AllArgsConstructor
 public class CreateCustomerAccount implements CreateCustomerAccountUseCase {
 
@@ -25,7 +25,7 @@ public class CreateCustomerAccount implements CreateCustomerAccountUseCase {
             .ifPresent(existingClient -> {
                 throw new CustomerAlreadyExistsException("Customer already exists with email: " + existingClient.getEmail().value());
             });
-        Account newAccount = accountRepository.save(Account.toSaveNew());
+        Account newAccount = accountRepository.save(Account.toSave());
         return customerRepository.createCustomer(new Customer(customer.getEmail(), customer.getName(), newAccount));
     }
 }

@@ -23,7 +23,7 @@ public class Account {
         this.transactions = transactions;
     }
 
-    public static Account toSaveNew(){
+    public static Account toSave(){
         return new Account(null, 0.0, List.of());
     }
 
