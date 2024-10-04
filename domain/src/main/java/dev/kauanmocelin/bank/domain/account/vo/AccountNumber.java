@@ -12,7 +12,7 @@ public record AccountNumber(String value) {
         if(value.length() > 8) {
             throw new IllegalArgumentException("'value' must has maximum 8 numbers");
         }
-        if(Long.parseLong(value) < 0) {
+        if(Long.parseLong(value) < 1) {
             throw new IllegalArgumentException("'value' must be a positive number");
         }
     }
