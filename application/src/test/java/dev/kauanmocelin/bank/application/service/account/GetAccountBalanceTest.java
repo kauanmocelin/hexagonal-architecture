@@ -29,10 +29,10 @@ class GetAccountBalanceTest {
 
     @Test
     void shouldSuccessfulReturnBalanceWhenGetBalanceFromExistingAccount() {
-        final var account = new Account(new AccountNumber(1L), 250.00, List.of());
-        when(accountRepository.findByAccountNumber(new AccountNumber(1L))).thenReturn(Optional.of(account));
+        final var account = new Account(new AccountNumber("1"), 250.00, List.of());
+        when(accountRepository.findByAccountNumber(new AccountNumber("1"))).thenReturn(Optional.of(account));
 
-        final var accountBalance = getAccountBalance.getAccountBalance(new AccountNumber(1L));
+        final var accountBalance = getAccountBalance.getAccountBalance(new AccountNumber("1"));
 
         assertThat(accountBalance).isEqualTo(250.00);
         verify(accountRepository).findByAccountNumber(any(AccountNumber.class));
@@ -40,10 +40,10 @@ class GetAccountBalanceTest {
 
     @Test
     void shouldThrownAnExceptionWhenAccountNotExists() {
-        when(accountRepository.findByAccountNumber(new AccountNumber(1L))).thenReturn(Optional.empty());
+        when(accountRepository.findByAccountNumber(new AccountNumber("1"))).thenReturn(Optional.empty());
 
         assertThatExceptionOfType(AccountNotExistsException.class)
-            .isThrownBy(() -> getAccountBalance.getAccountBalance(new AccountNumber(1L)))
+            .isThrownBy(() -> getAccountBalance.getAccountBalance(new AccountNumber("1")))
             .withMessage("Account number 1 not exists");
         verify(accountRepository).findByAccountNumber(any(AccountNumber.class));
     }

@@ -18,7 +18,7 @@ public class SendMoney implements SendMoneyUseCase {
     private final AccountRepository accountRepository;
 
     @Override
-    public boolean sendMoney(Long sourceAccountId, Long targetAccountId, Double money) {
+    public boolean sendMoney(final String sourceAccountId, final String targetAccountId, Double money) {
 
         Optional<Account> sourceAccount = accountRepository.findByAccountNumber(new AccountNumber(sourceAccountId));
         Optional<Account> targetAccount = accountRepository.findByAccountNumber(new AccountNumber(targetAccountId));

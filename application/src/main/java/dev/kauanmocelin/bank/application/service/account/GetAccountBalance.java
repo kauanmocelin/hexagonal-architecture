@@ -18,6 +18,6 @@ public class GetAccountBalance implements GetAccountBalanceQuery {
     public Double getAccountBalance(AccountNumber accountNumber) {
         return accountRepository.findByAccountNumber(accountNumber)
             .map(Account::getBalance)
-            .orElseThrow(() -> new AccountNotExistsException("Account number %d not exists".formatted(accountNumber.value())));
+            .orElseThrow(() -> new AccountNotExistsException("Account number %s not exists".formatted(accountNumber.value())));
     }
 }

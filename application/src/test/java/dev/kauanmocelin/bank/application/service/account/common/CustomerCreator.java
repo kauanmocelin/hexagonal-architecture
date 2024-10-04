@@ -14,7 +14,7 @@ public class CustomerCreator {
             .email(new Email("johndoe@gmail.com"))
             .name("John Doe")
             .account(Account.builder()
-                .accountNumber(new AccountNumber(1L))
+                .accountNumber(new AccountNumber("1"))
                 .balance(100.00)
                 .transactions(new ArrayList<>())
                 .build())

@@ -44,14 +44,14 @@ class SendMoneyTest {
 
     private Account mockSourceAccountWithBalance(double balance) {
         Account sourceAccount = AccountCreator.createSourceAccountWithBalance(balance);
-        BDDMockito.when(accountRepository.findByAccountNumber(new AccountNumber(1L)))
+        BDDMockito.when(accountRepository.findByAccountNumber(new AccountNumber("1")))
                 .thenReturn(Optional.of(sourceAccount));
         return sourceAccount;
     }
 
     private Account mockTargetAccountWithBalance(double balance) {
         Account targetAccount = AccountCreator.createTargetAccountWithBalance(balance);
-        BDDMockito.when(accountRepository.findByAccountNumber(new AccountNumber(42L)))
+        BDDMockito.when(accountRepository.findByAccountNumber(new AccountNumber("42")))
                 .thenReturn(Optional.of(targetAccount));
         return targetAccount;
     }

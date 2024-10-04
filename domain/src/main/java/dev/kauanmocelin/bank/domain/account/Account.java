@@ -24,14 +24,14 @@ public class Account {
     }
 
     public static Account toSave(){
-        return new Account(null, 0.0, List.of());
+        return new Account(AccountNumber.generate(), 0.0, List.of());
     }
 
-    public static Account loadExist(AccountNumber id, Double balance, List<Transaction> transactions) {
-        return new Account(id, balance, transactions);
+    public static Account loadExist(AccountNumber accountNumber, Double balance, List<Transaction> transactions) {
+        return new Account(accountNumber, balance, transactions);
     }
 
-    public Optional<Long> getAccountNumber() {
+    public Optional<String> getAccountNumber() {
         return Optional.of(this.accountNumber.value());
     }
 
