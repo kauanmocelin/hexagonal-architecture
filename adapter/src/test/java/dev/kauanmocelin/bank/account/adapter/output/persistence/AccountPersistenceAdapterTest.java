@@ -25,8 +25,10 @@ class AccountPersistenceAdapterTest {
     @Test
     @Sql("AccountPersistenceAdapterTest.sql")
     void loadsAccount() {
-        Optional<Account> account = accountPersistenceAdapter.findBy(new AccountNumber("123456"));
+        Optional<Account> retrievedAccount = accountPersistenceAdapter.findBy(new AccountNumber("123456"));
 
-        assertThat(account.get().getBalance()).isEqualTo(100.00);
+        assertThat(retrievedAccount)
+            .isPresent()
+            .hasValueSatisfying(account -> assertThat(account.getBalance()).isEqualTo(100.00));
     }
 }
