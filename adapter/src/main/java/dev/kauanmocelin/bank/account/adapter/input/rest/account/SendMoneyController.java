@@ -16,7 +16,7 @@ public class SendMoneyController {
 
     @GetMapping(path = "/{accountId}")
     public Double getAccountBalance(@PathVariable Long accountNumber) {
-        return getAccountBalanceQuery.getAccountBalance(new AccountNumber(accountNumber));
+        return getAccountBalanceQuery.getAccountBalance(new AccountNumber(String.valueOf(accountNumber)));
     }
 
     @PostMapping(path = "/send/{sourceAccountId}/{targetAccountId}/{amount}")
@@ -25,6 +25,6 @@ public class SendMoneyController {
             @PathVariable Long targetAccountId,
             @PathVariable Double amount) {
 
-        return sendMoneyUseCase.sendMoney(sourceAccountId, targetAccountId, amount);
+        return sendMoneyUseCase.sendMoney(String.valueOf(sourceAccountId), String.valueOf(targetAccountId), amount);
     }
 }

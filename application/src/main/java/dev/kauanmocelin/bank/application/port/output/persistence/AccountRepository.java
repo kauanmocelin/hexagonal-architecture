@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface AccountRepository {
     Account save(Account account);
-    Optional<Account> findByAccountNumber(AccountNumber accountNumber);
+    Optional<Account> findBy(AccountNumber accountNumber);
     void updateAccount(Account account);
 }

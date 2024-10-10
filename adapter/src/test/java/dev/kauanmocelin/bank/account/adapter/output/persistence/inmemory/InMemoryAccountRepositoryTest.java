@@ -15,7 +15,7 @@ class InMemoryAccountRepositoryTest {
     void shouldNotReturnAccountWhenAccountNotFoundWithAccountNumber() {
         AccountRepository accountRepository = new InMemoryAccountRepository();
 
-        Optional<Account> account = accountRepository.findByAccountNumber(new AccountNumber(1L));
+        Optional<Account> account = accountRepository.findBy(new AccountNumber("1"));
 
         assertThat(account).isEmpty();
     }

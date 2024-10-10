@@ -15,14 +15,14 @@ public class InMemoryAccountRepository implements AccountRepository {
 
     @Override
     public Account save(Account account) {
-        AccountNumber nextAccountNumber = new AccountNumber(incrementalAccountNumber++);
+        AccountNumber nextAccountNumber = new AccountNumber(String.valueOf(incrementalAccountNumber++));
         Account newAccount = new Account(nextAccountNumber, account.getBalance(), account.getTransactions());
         accounts.put(nextAccountNumber, newAccount);
         return newAccount;
     }
 
     @Override
-    public Optional<Account> findByAccountNumber(AccountNumber accountNumber) {
+    public Optional<Account> findBy(AccountNumber accountNumber) {
         return Optional.ofNullable(accounts.get(accountNumber));
     }
 

@@ -20,14 +20,12 @@ public class SendMoney implements SendMoneyUseCase {
     @Override
     public boolean sendMoney(final String sourceAccountId, final String targetAccountId, Double money) {
 
-        Optional<Account> sourceAccount = accountRepository.findByAccountNumber(new AccountNumber(sourceAccountId));
-        Optional<Account> targetAccount = accountRepository.findByAccountNumber(new AccountNumber(targetAccountId));
+        Optional<Account> sourceAccount = accountRepository.findBy(new AccountNumber(sourceAccountId));
+        Optional<Account> targetAccount = accountRepository.findBy(new AccountNumber(targetAccountId));
 
         //TODO: verificar e corrigir os Optional
-        sourceAccount.get().getAccountNumber()
-                .orElseThrow(() -> new IllegalStateException("expected source account ID not to be empty"));
-        targetAccount.get().getAccountNumber()
-                .orElseThrow(() -> new IllegalStateException("expected target account ID not to be empty"));
+        sourceAccount.orElseThrow(() -> new IllegalStateException("expected source account ID not to be empty"));
+        targetAccount.orElseThrow(() -> new IllegalStateException("expected target account ID not to be empty"));
 
         if (!sourceAccount.get().withdraw(money)) return false;
         if (!targetAccount.get().deposit(money)) return false;

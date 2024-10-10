@@ -38,8 +38,8 @@ class SendMoneyControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
         when(sendMoneyUseCase.sendMoney(
-                ArgumentMatchers.eq(sourceAccountId),
-                ArgumentMatchers.eq(targetAccountId),
+                ArgumentMatchers.eq(String.valueOf(sourceAccountId)),
+                ArgumentMatchers.eq(String.valueOf(targetAccountId)),
                 ArgumentMatchers.eq(amount))
         ).thenReturn(true);
     }

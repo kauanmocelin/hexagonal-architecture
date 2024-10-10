@@ -32,8 +32,8 @@ class SendMoneyTest {
         Account targetAccount = mockTargetAccountWithBalance(200.00);
 
         boolean sendMoneyResult = sendMoney.sendMoney(
-                sourceAccount.getAccountNumber().get(),
-                targetAccount.getAccountNumber().get(),
+                sourceAccount.getAccountNumber().value(),
+                targetAccount.getAccountNumber().value(),
                 100.00);
 
         assertThat(sendMoneyResult).isTrue();
@@ -44,14 +44,14 @@ class SendMoneyTest {
 
     private Account mockSourceAccountWithBalance(double balance) {
         Account sourceAccount = AccountCreator.createSourceAccountWithBalance(balance);
-        BDDMockito.when(accountRepository.findByAccountNumber(new AccountNumber("1")))
+        BDDMockito.when(accountRepository.findBy(new AccountNumber("1")))
                 .thenReturn(Optional.of(sourceAccount));
         return sourceAccount;
     }
 
     private Account mockTargetAccountWithBalance(double balance) {
         Account targetAccount = AccountCreator.createTargetAccountWithBalance(balance);
-        BDDMockito.when(accountRepository.findByAccountNumber(new AccountNumber("42")))
+        BDDMockito.when(accountRepository.findBy(new AccountNumber("42")))
                 .thenReturn(Optional.of(targetAccount));
         return targetAccount;
     }
