@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class InMemoryAccountRepository implements AccountRepository {
 
     private final Map<AccountNumber, Account> accounts = new ConcurrentHashMap<>();
-    private long incrementalAccountNumber = 1;
+    private long incrementalAccountNumber = 12345678;
 
     @Override
     public Account save(Account account) {

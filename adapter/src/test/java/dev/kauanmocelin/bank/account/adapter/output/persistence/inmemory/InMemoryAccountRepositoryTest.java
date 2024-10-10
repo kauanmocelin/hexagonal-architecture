@@ -15,8 +15,20 @@ class InMemoryAccountRepositoryTest {
     void shouldNotReturnAccountWhenAccountNotFoundWithAccountNumber() {
         AccountRepository accountRepository = new InMemoryAccountRepository();
 
-        Optional<Account> account = accountRepository.findBy(new AccountNumber("1"));
+        Optional<Account> account = accountRepository.findBy(new AccountNumber("54985623"));
 
         assertThat(account).isEmpty();
+    }
+
+    @Test
+    void shouldReturnAccountWithBalanceZeroWhenNewAccountWasCreated() {
+        AccountRepository accountRepository = new InMemoryAccountRepository();
+
+        accountRepository.save(Account.toSave());
+        Optional<Account> retrievedAccount = accountRepository.findBy(new AccountNumber("12345678"));
+
+        assertThat(retrievedAccount)
+            .isPresent()
+            .hasValueSatisfying(account -> assertThat(account.getBalance()).isEqualTo(0.0));
     }
 }
