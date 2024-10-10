@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE #logs parameter values on sql query
+    org.springframework.jdbc.datasource.init: TRACE #logs statements executed by @Sql on test case
