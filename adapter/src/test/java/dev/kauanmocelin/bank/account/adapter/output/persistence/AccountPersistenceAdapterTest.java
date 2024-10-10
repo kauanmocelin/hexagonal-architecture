@@ -1,7 +1,7 @@
 package dev.kauanmocelin.bank.account.adapter.output.persistence;
 
-import dev.kauanmocelin.bank.account.adapter.output.persistence.jpa.AccountMapper;
 import dev.kauanmocelin.bank.account.adapter.output.persistence.jpa.AccountPersistenceAdapter;
+import dev.kauanmocelin.bank.account.adapter.output.persistence.jpa.mapper.AccountMapper;
 import dev.kauanmocelin.bank.domain.account.Account;
 import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;
 import org.junit.jupiter.api.Test;
@@ -14,6 +14,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 @DataJpaTest
 @Import({AccountPersistenceAdapter.class, AccountMapper.class})
 class AccountPersistenceAdapterTest {
@@ -24,7 +25,7 @@ class AccountPersistenceAdapterTest {
     @Test
     @Sql("AccountPersistenceAdapterTest.sql")
     void loadsAccount() {
-        Optional<Account> account = accountPersistenceAdapter.findByAccountNumber(new AccountNumber(1L));
+        Optional<Account> account = accountPersistenceAdapter.findBy(new AccountNumber("123456"));
 
         assertThat(account.get().getBalance()).isEqualTo(100.00);
     }

@@ -17,6 +17,14 @@ public record AccountNumber(String value) {
         }
     }
 
+    public static AccountNumber from(final String value) {
+        return new AccountNumber(value);
+    }
+
+    public Long toLong() {
+        return Long.parseLong(this.value);
+    }
+
     /**
      * Generate a random identifier number with maximum 8 numbers for account number.
      * @return create an instance of {@link AccountNumber} value

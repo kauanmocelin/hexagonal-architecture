@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.util.List;
-import java.util.Optional;
 
 @Builder
 @Getter
@@ -29,10 +28,6 @@ public class Account {
 
     public static Account loadExist(AccountNumber accountNumber, Double balance, List<Transaction> transactions) {
         return new Account(accountNumber, balance, transactions);
-    }
-
-    public Optional<String> getAccountNumber() {
-        return Optional.of(this.accountNumber.value());
     }
 
     public boolean withdraw(Double money) {
