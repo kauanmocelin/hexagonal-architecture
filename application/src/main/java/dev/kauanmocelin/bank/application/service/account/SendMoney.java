@@ -23,7 +23,6 @@ public class SendMoney implements SendMoneyUseCase {
         Optional<Account> sourceAccount = accountRepository.findBy(new AccountNumber(sourceAccountId));
         Optional<Account> targetAccount = accountRepository.findBy(new AccountNumber(targetAccountId));
 
-        //TODO: verificar e corrigir os Optional
         sourceAccount.orElseThrow(() -> new IllegalStateException("expected source account ID not to be empty"));
         targetAccount.orElseThrow(() -> new IllegalStateException("expected target account ID not to be empty"));
 
