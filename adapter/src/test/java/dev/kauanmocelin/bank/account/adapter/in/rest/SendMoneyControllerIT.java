@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.mockito.BDDMockito.when;
 
 @WebMvcTest(controllers = SendMoneyController.class)
-class SendMoneyControllerTest {
+class SendMoneyControllerIT {
 
     @Autowired
     private MockMvc mockMvc;
