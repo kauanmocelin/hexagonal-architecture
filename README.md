@@ -19,6 +19,7 @@ With this architecture all layers was tested independently and easily, an elegan
 - Unit Testing
 - Maven
 - Lombok
+- Testcontainers
 
 # Prerequisites
 
