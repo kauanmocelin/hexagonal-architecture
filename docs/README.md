@@ -11,32 +11,38 @@ With this architecture all layers was tested independently and easily, an elegan
 
 ![Hexagonal Architecture Diagram](hexagonal-architecture.png)
 
-# Built With
-
-- Java
-- Spring Boot
-- Spring Data JPA
-- Unit Testing
-- Maven
-- Lombok
-- Testcontainers
-
 # Prerequisites
 
-- Java 11
+- [Java 17](https://openjdk.org/projects/jdk/17/)
+- [Maven](https://maven.apache.org/download.cgi)
+- [Docker](https://docs.docker.com/get-started/get-docker/)
 
 # Running
 
+1. Clone the repository:
 ```bash
-# clone repository
 git clone https://github.com/kauanmocelin/hexagonal-architecture.git
-
-# enter the project folder
-cd hexagonal-architecture
-
-# run tests
-./mvnw test
 ```
+
+2. Enter the project folder: 
+```bash
+cd hexagonal-architecture
+```
+
+3. Build the project using Maven:
+```bash
+mvn clean install
+```
+
+The application should now be up and running locally.
+
+# Technologies
+
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+- [Lombok](https://projectlombok.org/)
+- [Testcontainers](https://testcontainers.com/)
+- [ArchUnit](https://www.archunit.org/)
 
 # Author
 
