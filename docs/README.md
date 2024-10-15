@@ -14,7 +14,6 @@ With this architecture all layers was tested independently and easily, an elegan
 # Prerequisites
 
 - [Java 17](https://openjdk.org/projects/jdk/17/)
-- [Maven](https://maven.apache.org/download.cgi)
 - [Docker](https://docs.docker.com/get-started/get-docker/)
 
 # Running
@@ -31,7 +30,7 @@ cd hexagonal-architecture
 
 3. Build the project using Maven:
 ```bash
-mvn clean install
+./mvnw clean install
 ```
 
 The application should now be up and running locally.
@@ -40,6 +39,7 @@ The application should now be up and running locally.
 
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+- [Maven](https://maven.apache.org/download.cgi)
 - [Lombok](https://projectlombok.org/)
 - [Testcontainers](https://testcontainers.com/)
 - [ArchUnit](https://www.archunit.org/)
