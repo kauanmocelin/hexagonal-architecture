@@ -1,5 +1,6 @@
-package dev.kauanmocelin.bank;
+package dev.kauanmocelin.bank.infrastructure;
 
+import dev.kauanmocelin.bank.SpringAppConfig;
 import org.springframework.boot.SpringApplication;
 
 public class Launcher {

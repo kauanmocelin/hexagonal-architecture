@@ -1,6 +1,6 @@
-package dev.kauanmocelin.bank.account.adapter.output.persistence.jpa;
+package dev.kauanmocelin.bank.adapter.persistence.jpa;
 
-import dev.kauanmocelin.bank.account.adapter.output.persistence.jpa.mapper.AccountMapper;
+import dev.kauanmocelin.bank.adapter.persistence.jpa.mapper.AccountMapper;
 import dev.kauanmocelin.bank.application.port.output.persistence.AccountRepository;
 import dev.kauanmocelin.bank.domain.account.Account;
 import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;

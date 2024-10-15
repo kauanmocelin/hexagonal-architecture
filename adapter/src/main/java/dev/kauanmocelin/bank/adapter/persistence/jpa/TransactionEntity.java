@@ -1,4 +1,4 @@
-package dev.kauanmocelin.bank.account.adapter.output.persistence.jpa;
+package dev.kauanmocelin.bank.adapter.persistence.jpa;
 
 import dev.kauanmocelin.bank.domain.transaction.TransactionType;
 import lombok.AllArgsConstructor;

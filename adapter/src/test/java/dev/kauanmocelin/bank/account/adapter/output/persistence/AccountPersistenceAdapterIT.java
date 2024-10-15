@@ -1,6 +1,6 @@
 package dev.kauanmocelin.bank.account.adapter.output.persistence;
 
-import dev.kauanmocelin.bank.account.adapter.output.persistence.jpa.AccountPersistenceAdapter;
+import dev.kauanmocelin.bank.adapter.persistence.jpa.AccountPersistenceAdapter;
 import dev.kauanmocelin.bank.domain.account.Account;
 import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;
 import org.junit.jupiter.api.Test;

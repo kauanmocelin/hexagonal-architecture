@@ -1,7 +1,7 @@
-package dev.kauanmocelin.bank.account.adapter.output.persistence.jpa.mapper;
+package dev.kauanmocelin.bank.adapter.persistence.jpa.mapper;
 
-import dev.kauanmocelin.bank.account.adapter.output.persistence.jpa.AccountEntity;
-import dev.kauanmocelin.bank.account.adapter.output.persistence.jpa.TransactionEntity;
+import dev.kauanmocelin.bank.adapter.persistence.jpa.AccountEntity;
+import dev.kauanmocelin.bank.adapter.persistence.jpa.TransactionEntity;
 import dev.kauanmocelin.bank.domain.account.Account;
 import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;
 import dev.kauanmocelin.bank.domain.transaction.Transaction;

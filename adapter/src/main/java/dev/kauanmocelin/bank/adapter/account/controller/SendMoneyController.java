@@ -1,4 +1,4 @@
-package dev.kauanmocelin.bank.account.adapter.input.rest.account;
+package dev.kauanmocelin.bank.adapter.account.controller;
 
 import dev.kauanmocelin.bank.application.port.input.account.GetAccountBalanceQuery;
 import dev.kauanmocelin.bank.application.port.input.account.SendMoneyUseCase;

@@ -1,4 +1,4 @@
-package dev.kauanmocelin.bank.account.adapter.output.persistence.inmemory;
+package dev.kauanmocelin.bank.adapter.persistence.inmemory;
 
 import dev.kauanmocelin.bank.application.port.output.persistence.AccountRepository;
 import dev.kauanmocelin.bank.domain.account.Account;
