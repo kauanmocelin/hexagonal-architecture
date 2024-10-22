@@ -14,7 +14,7 @@ import java.util.Optional;
 @Repository
 public class AccountPersistenceAdapter implements AccountRepository {
 
-    private final SpringDataAccountRepository accountRepository;
+    private final SpringDataAccountRepository springDataAccount;
     private final AccountMapper accountMapper;
 
     @Override
@@ -24,11 +24,11 @@ public class AccountPersistenceAdapter implements AccountRepository {
 
     @Override
     public Optional<Account> findBy(AccountNumber accountNumber) {
-        return accountRepository.findByAccountNumber(accountNumber.toLong()).map(accountMapper::toDomain);
+        return springDataAccount.findByAccountNumber(accountNumber.toLong()).map(accountMapper::toDomain);
     }
 
     @Override
     public void updateAccount(Account account) {
-        accountRepository.save(accountMapper.toEntity(account));
+        springDataAccount.save(accountMapper.toEntity(account));
     }
 }
