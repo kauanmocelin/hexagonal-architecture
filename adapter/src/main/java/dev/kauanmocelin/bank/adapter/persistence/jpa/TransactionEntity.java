@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "transaction")
+@Table(name = "transactions")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,7 +21,7 @@ public class TransactionEntity {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private TransactionType type;
-    @Column(nullable = false)
+    @Column(name = "transaction_value", nullable = false)
     private Double value;
     @Column(nullable = false)
     private LocalDateTime dataHora;
