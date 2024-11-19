@@ -43,9 +43,3 @@ The application should now be up and running locally.
 - [Lombok](https://projectlombok.org/)
 - [Testcontainers](https://testcontainers.com/)
 - [ArchUnit](https://www.archunit.org/)
-
-# Author
-
-**Kauan Mocelin**
-
-[![Twitter Follow](https://img.shields.io/twitter/follow/kauanmocelin?style=social)](https://twitter.com/kauanmocelin)
