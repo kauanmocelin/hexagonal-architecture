@@ -4,6 +4,7 @@ import dev.kauanmocelin.bank.application.port.input.account.GetAccountBalanceQue
 import dev.kauanmocelin.bank.application.port.input.account.SendMoneyUseCase;
 import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,16 +16,15 @@ public class SendMoneyController {
     private final SendMoneyUseCase sendMoneyUseCase;
 
     @GetMapping(path = "/{accountId}")
-    public Double getAccountBalance(@PathVariable Long accountNumber) {
-        return getAccountBalanceQuery.getAccountBalance(new AccountNumber(String.valueOf(accountNumber)));
+    public ResponseEntity<Double> getAccountBalance(@PathVariable Long accountNumber) {
+        return ResponseEntity.ok(getAccountBalanceQuery.getAccountBalance(new AccountNumber(String.valueOf(accountNumber))));
     }
 
     @PostMapping(path = "/send/{sourceAccountId}/{targetAccountId}/{amount}")
-    public Boolean sendMoney(
+    public ResponseEntity<Boolean> sendMoney(
             @PathVariable Long sourceAccountId,
             @PathVariable Long targetAccountId,
             @PathVariable Double amount) {
-
-        return sendMoneyUseCase.sendMoney(String.valueOf(sourceAccountId), String.valueOf(targetAccountId), amount);
+        return ResponseEntity.ok(sendMoneyUseCase.sendMoney(String.valueOf(sourceAccountId), String.valueOf(targetAccountId), amount));
     }
 }
