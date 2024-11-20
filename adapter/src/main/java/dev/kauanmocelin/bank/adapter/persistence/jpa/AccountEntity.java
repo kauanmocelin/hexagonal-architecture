@@ -24,7 +24,7 @@ public class AccountEntity {
     private Long accountNumber;
     @Column(nullable = false)
     private Double balance;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
     private List<TransactionEntity> transactions;
 }

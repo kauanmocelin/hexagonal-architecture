@@ -1,4 +1,4 @@
-package archunit;
+package dev.kauanmocelin.bank.infrastructure.archunit;
 
 import com.tngtech.archunit.core.importer.ImportOption;
 import com.tngtech.archunit.junit.AnalyzeClasses;

@@ -29,6 +29,10 @@ public class AccountPersistenceAdapter implements AccountRepository {
 
     @Override
     public void updateAccount(Account account) {
-        springDataAccount.save(accountMapper.toEntity(account));
+        AccountEntity accountEntity = springDataAccount.findByAccountNumber(account.getAccountNumber().toLong())
+            .orElseThrow(() -> new IllegalStateException("Account not found with number: " + account.getAccountNumber().toLong()));
+        AccountEntity entityToUpdate = accountMapper.toEntity(account);
+        entityToUpdate.setAccount_id(accountEntity.getAccount_id());
+        springDataAccount.save(entityToUpdate);
     }
 }

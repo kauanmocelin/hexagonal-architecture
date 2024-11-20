@@ -6,8 +6,8 @@ import dev.kauanmocelin.bank.domain.account.Account;
 import dev.kauanmocelin.bank.domain.account.vo.AccountNumber;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 
 @RequiredArgsConstructor
