@@ -42,6 +42,11 @@ cd hexagonal-architecture
 ./mvnw clean install
 ```
 
+4. Run the project using spring plugin:
+```
+./mvnw spring-boot:run -pl infrastructure
+```
+
 # Author
 
 **Kauan Mocelin**

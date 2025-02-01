@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-interface SpringDataAccountRepository extends JpaRepository<AccountEntity, Long> {
+public interface SpringDataAccountRepository extends JpaRepository<AccountEntity, Long> {
     Optional<AccountEntity> findByAccountNumber(Long accountNumber);
 }
