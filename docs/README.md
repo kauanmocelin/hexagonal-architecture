@@ -16,6 +16,15 @@ With this architecture all layers was tested independently and easily, an elegan
 - [Java 17](https://openjdk.org/projects/jdk/17/)
 - [Docker](https://docs.docker.com/get-started/get-docker/)
 
+# Technologies
+
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+- [Maven](https://maven.apache.org/download.cgi)
+- [Lombok](https://projectlombok.org/)
+- [Testcontainers](https://testcontainers.com/)
+- [ArchUnit](https://www.archunit.org/)
+
 # Running
 
 1. Clone the repository:
@@ -33,13 +42,8 @@ cd hexagonal-architecture
 ./mvnw clean install
 ```
 
-The application should now be up and running locally.
+# Author
 
-# Technologies
+**Kauan Mocelin**
 
-- [Spring Boot](https://spring.io/projects/spring-boot)
-- [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
-- [Maven](https://maven.apache.org/download.cgi)
-- [Lombok](https://projectlombok.org/)
-- [Testcontainers](https://testcontainers.com/)
-- [ArchUnit](https://www.archunit.org/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kauanmocelin/)
