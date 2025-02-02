@@ -32,7 +32,7 @@ class SendMoneyControllerIT {
         final Long targetAccountId = 42L;
         final Double amount = 500.00;
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/account/send/{sourceAccountId}/{targetAccountId}/{amount}",
+        mockMvc.perform(MockMvcRequestBuilders.post("/accounts/send/{sourceAccountId}/{targetAccountId}/{amount}",
                                 sourceAccountId, targetAccountId, amount)
                         .header("Content-Type", "application/json"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
