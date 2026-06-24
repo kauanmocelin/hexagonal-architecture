@@ -1,23 +1,17 @@
 # Hexagonal Architecture
 
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/kauanmocelin/hexagonal-architecture/blob/main/LICENSE)
-
-# About
-
+## Overview
 This is an implementation of Hexagonal Architecture as objective to learn more about software architecture by hands on.
 With this architecture all layers was tested independently and easily, an elegance way to accomplish decoupling of code.
 
-# Architectural Diagram
-
+## Architectural Diagram
 ![Hexagonal Architecture Diagram](hexagonal-architecture.png)
 
-# Prerequisites
-
+## Prerequisites
 - [Java 17](https://openjdk.org/projects/jdk/17/)
 - [Docker](https://docs.docker.com/get-started/get-docker/)
 
-# Technologies
-
+## Technologies
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
 - [Maven](https://maven.apache.org/download.cgi)
@@ -25,8 +19,7 @@ With this architecture all layers was tested independently and easily, an elegan
 - [Testcontainers](https://testcontainers.com/)
 - [ArchUnit](https://www.archunit.org/)
 
-# Running
-
+## Running
 1. Clone the repository:
 ```bash
 git clone https://github.com/kauanmocelin/hexagonal-architecture.git
@@ -47,8 +40,13 @@ cd hexagonal-architecture
 ./mvnw spring-boot:run -pl infrastructure
 ```
 
-# Author
+## Contributing
+Contributions are welcome. If you have suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
 
+## License
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
+
+## Author
 **Kauan Mocelin**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kauanmocelin/)
